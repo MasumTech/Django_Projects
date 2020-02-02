@@ -1,0 +1,59 @@
+<html>
+
+<head>
+
+    <title></title>
+</head>
+<body>
+<style>
+h1{
+  background-color: DarkSlateGray;
+  color: white;
+  text-align: left;
+  padding: 15px;
+  margin-top: -10px;
+}
+  button {
+  background-color: green;
+  color: white;
+  font-family: Arial;
+  text-align: right;
+  padding: 15px;
+  margin-top: 10px;
+  margin-left: 200px;
+  length: 20px;
+}
+input {
+  background-color: blue;
+  color: white;
+  font-family: Arial;
+  text-align: right;
+  padding: 7px;
+  margin-top: 5px;
+  margin-left: 100px;
+  length: 20px;
+}
+
+</style>
+
+<h1>{{ question.question_text }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'polls1:vote' question.id %}" method="post">
+{% csrf_token %}
+{% for choice in question.choice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+{% endfor %}
+<input type="submit" value="Vote">
+</form>
+
+
+<form>
+  <button type="submit" formaction="http://127.0.0.1:8000/home/"><b>Back to Polls</b></button>
+</form>
+
+</body>
+
+</html>

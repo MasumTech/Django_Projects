@@ -1,0 +1,76 @@
+<html>
+
+<head>
+
+    <title></title>
+    <div>
+    <h1>Result of Vote Counting</h1>
+</div>
+</head>
+<body>
+<style>
+  button {
+  background-color: green;
+  color: white;
+  font-family: Arial;
+  text-align: right;
+  padding: 15px;
+  margin-top: 10px;
+  margin-left: 200px;
+  length: 20px;
+}
+h1 {
+  background-color: DarkSlateGray;
+  color: white;
+  text-align: left;
+  padding: 15px;
+  margin-top: -10px;
+}
+
+table, td, th {
+  border: 1px solid black;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  height: 50px;
+  text-align: center;
+}
+</style>
+
+
+
+<table>
+
+   {% if latest_question_list %}
+   <tr>
+    {% for question in latest_question_list %}
+       <th>{{ question.question_text }}</th>
+
+   {% for choice in question.choice_set.all %}
+       <td>{{ choice.choice_text }} </td> <td> {{ choice.votes }} vote{{ choice.votes|pluralize }}</td>
+
+        {% endfor %}
+   </tr>
+    {% endfor %}
+
+
+</table>
+
+
+
+
+{% else %}
+<p>No polls are available.</p>
+{% endif %}
+
+<form>
+  <button type="submit" formaction="http://127.0.0.1:8000/"><b><-Home</b></button>
+</form>
+</body>
+</html>
