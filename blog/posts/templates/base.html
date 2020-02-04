@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> {% block head_title %} Try Django 2.3 {% endblock head_title %}</title>
+     <style>
+  {% block style %}
+  h1 {
+    color: blue;
+     }
+ {% endblock style %}
+ </style>
+</head>
+<body>
+{% include "messages_display.html" %}
+<div class="container">
+{% block content %}
+{% endblock content %}
+</div>
+</body>
+</html>
