@@ -1,17 +1,36 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="col-sm-8 col-sm-offset-2">
+<h1>{{ title }} </h1>
 
-    <h1>{{ title }} is working!!!!</h1>
-
-    {% for obj in object_list %}
-
-        <a href='{{obj.get_absolute_url}}'>{{obj.title}}</a><br/>
-        {{obj.content}}<br/>
-        {{obj.updated}}<br/>
-        {{obj.timestamp}}<br/>
-        {{obj.id}}<br/>
-
-    {% endfor %}
-
+ {% for obj in object_list %}
+<div class="card">
+  <div class="card-header">
+      <h1> <a href='{{obj.get_absolute_url}}'>{{obj.title}}</a><small> <small> <small>
+          <small>{{obj.timestamp | timesince}} Ago</small></small></small></small></h1>
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{obj.content|linebreaks|truncatechars:120}}</p>
+    <a href="{{obj.get_absolute_url}}" class="btn btn-primary" role="button">View Details</a>
+  </div>
+</div>
+<br> <br>
+  {% endfor %}
+</div>
 {% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
