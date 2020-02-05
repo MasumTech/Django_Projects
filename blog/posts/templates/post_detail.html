@@ -5,11 +5,10 @@
  {% endblock head_title %}
 
  {% block content %}
- <h1>{{ title }}</h1>
- {{instance.title}}<br/>
- {{instance.content}}<br/>
- {{instance.updated}}<br/>
- {{instance.timestamp}}<br/>
- {{instance.id}}<br/>
+ <div class="col-sm-8 col-sm-offset-2">
+ <h2>{{ title }} <small> <small><small>{{instance.timestamp | timesince}} Ago Created!</small></small> </small>   </h2>
+
+ {{instance.content  | linebreaks}}<br/>
+ </div>
 
  {% endblock content %}
