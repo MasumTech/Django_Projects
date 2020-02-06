@@ -3,20 +3,55 @@
 {% block content %}
 <div class="col-sm-8 col-sm-offset-2">
 <h1>{{ title }} </h1>
+<form method="GET" action="">
+    <input type="text" name="q" placeholder="Search Posts" value="{{request.GET.q}}" />
+    <input type="submit" value="Search" />
+</form>
 
  {% for obj in object_list %}
+
 <div class="card">
+          {% if obj.image %}
+      <img src="{{obj.image.url }}"  class = 'img-responsive'/>
+       {% endif %}
   <div class="card-header">
-      <h1> <a href='{{obj.get_absolute_url}}'>{{obj.title}}</a><small> <small> <small>
-          <small>{{obj.timestamp | timesince}} Ago</small></small></small></small></h1>
+
+
+      {% if obj.draft %} <h3 style="color: red;"> Staff Only: Draft</h3> {% endif %} {% if obj.publish > today %} <h3 style="color: green;">Staff Only: Future Post</h3>
+      {% endif %}
+
+      <h2> <a href='{{obj.get_absolute_url}}'>{{obj.title}}</a><small> <small> <small>
+          <small>{{obj.publish}}</small></small></small></small></h2>
   </div>
   <div class="card-body">
+      {% if obj.user.get_full_name %}
+      <p class="card-text">Author: {{obj.user.get_full_name}}</p>
+      {% endif %}
     <p class="card-text">{{obj.content|linebreaks|truncatechars:120}}</p>
     <a href="{{obj.get_absolute_url}}" class="btn btn-primary" role="button">View Details</a>
   </div>
 </div>
 <br> <br>
   {% endfor %}
+
+    <div class="pagination">
+    <span class="step-links">
+        {% if object_list.has_previous %}
+
+            <a href="?page={{ object_list.previous_page_number }} {% if request.GET.q %} & q = {{request.GET.q}} {% endif %}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+        </span>
+
+        {% if object_list.has_next %}
+            <a href="?page={{ object_list.next_page_number }} {% if request.GET.q %} & q = {{request.GET.q}} {% endif %}">next</a>
+        {% endif %}
+    </span>
+</div>
+
+
 </div>
 {% endblock content %}
 
