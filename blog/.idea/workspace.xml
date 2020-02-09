@@ -28,7 +28,14 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/posts/migrations/0003_auto_20200206_1357.py" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/posts/migrations/0003_auto_20200206_1357.py" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Django_Projects\blog\static\css" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -68,17 +75,25 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="441" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1580850538898" />
-    <state x="462" y="118" key="FileChooserDialogImpl" timestamp="1580849272102">
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1580980823055">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="462" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1580849272102" />
-    <state x="183" y="6" key="SettingsEditor" timestamp="1580846762500">
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1580980823055" />
+    <state x="462" y="118" key="FileChooserDialogImpl" timestamp="1580980643911">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="183" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1580846762500" />
-    <state x="377" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1580843745052">
+    <state x="462" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1580980643911" />
+    <state x="183" y="6" key="SettingsEditor" timestamp="1581160393747">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="377" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1580843745052" />
+    <state x="183" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1581160393747" />
+    <state x="377" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1581259617538">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="377" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1581259617538" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1580987127911">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1580987127911" />
   </component>
 </project>

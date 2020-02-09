@@ -4,11 +4,12 @@ from six.moves.urllib.parse import quote
 from django.http import HttpResponseRedirect, Http404, HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
+from django.contrib.contenttypes.models import ContentType
 from .forms import PostForm
 from .models import Post
 from django.core.paginator import Paginator
 from django.shortcuts import render
-
+from comments.models import Comment
 
 # Create your views here.
 
@@ -36,12 +37,16 @@ def post_detail(request, qid):
     if instance.publish > timezone.now().date() or instance.draft:
         if not request.user.is_staff or not request.user.is_superuser:
             raise Http404
-
     share_string = quote(instance.content)
+    content_type = ContentType.objects.get_for_model(Post)
+    obj_id = instance.id
+    comments = Comment.objects.filter(content_type=content_type, object_id=obj_id)
+
     context = {
         "title": instance.title,
         "instance": instance,
         "share_string": share_string,
+        "comments": comments,
     }
     return render(request, "post_detail.html", context)
 
@@ -61,7 +66,7 @@ def post_list(request):
             Q(user__last_name__icontains=query)
              ).distinct()
 
-    paginator = Paginator(queryset_list, 2)  # Show 25 contacts per page.
+    paginator = Paginator(queryset_list, 5)  # Show 25 contacts per page.
     page_number = request.GET.get('page')
     queryset = paginator.get_page(page_number)
     context = {

@@ -4,27 +4,50 @@
  {% endblock head_title %}
 
  {% block content %}
- <div class="col-sm-8 col-sm-offset-2">
+ <div class="'row">
+ <div class="col-sm-8 col-sm-offset-3">
 
       {% if instance.image %}
       <img src="{{instance.image.url }}"  class = 'img-responsive'/>
        {% endif %}
 
- <h2>{{ title }} <small> <small><small>{% if instance.draft %} <span style="color:red;">Draft</span>{% endif %} {{instance.publish}}</small></small> </small>   </h2>
- <p>Author: {{instance.user.get_full_name}}</p>
+         <h2>{{ title }} <small> <small><small>{% if instance.draft %} <span style="color:red;">Draft</span>{% endif %} {{instance.publish}}</small></small> </small>   </h2>
+             <p>Author: {{instance.user.get_full_name}}</p>
 
-<p><div class="fb-like" data-href="{{ request.build_absolute_uri}}"
-data-width="" data-layout="button_count" data-action="like"
-data-size="small" data-share="true"></div></p>
+            <div class="fb-like" data-href="{{ request.build_absolute_uri}}"
+                      data-width="" data-layout="button_count" data-action="like"
+                  data-size="small" data-share="true">
 
- <hr><br>
-
- {{instance.content  | linebreaks}}<br/>
-
- <p><div class="fb-comments" data-href="{{ request.build_absolute_uri}}"
-data-width="" data-numposts="5"></div></p>
+            </div>
 
 
- </div>
 
- {% endblock content %}
+                    <div class="row">
+                       <div class="col-sm-12 content-markdown">
+                          <div class="content-markdown">{{instance.content}}</div>
+                           <hr><br>
+
+                           <div>
+ 
+                               <p class="lead">Comments</p>
+                               {% for comment in comments %}
+                              <div class="">
+                                   {{comment.content}}
+                                  <br/>
+                                  <small>via {{comment.user}} | {{comment.timestamp | timesince}} ago </small>
+                                  <hr>
+                              </div>
+                               {% endfor %}
+                           </div>
+
+
+
+                       </div>
+
+
+                    </div>
+
+     {% endblock content %}
+        </div>
+
+  </div>

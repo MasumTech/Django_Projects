@@ -1,24 +1,19 @@
 <!--DOCTYPE html-->
 <html>
 <head>
-    <title> {% block head_title %} Try Django 2.3 {% endblock head_title %}</title>
+    <title> {% block head_title %}Advancing the Blog {% endblock head_title %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <link rel='stylesheet' href='/static/css/base.css' />
      <style>
+  {% block style %} {% endblock style %}
 
-  {% block style %}
- {% endblock style %}
  </style>
+     {% block head_extra %} {% endblock head_extra %}
 </head>
+
+
 <body>
-
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous"
-src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=204548383441675&autoLogAppEvents=1">
-</script>
-
-
 
 
 {% include "messages_display.html" %}
@@ -26,5 +21,6 @@ src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=204548
 {% block content %}
 {% endblock content %}
 </div>
+
 </body>
 </html>

@@ -3,16 +3,12 @@ from django.template.defaultfilters import slugify
 from django.urls import reverse
 from django.db.models.signals import pre_save
 from django.conf import settings
-
-# Create your models here.
 from django.utils import timezone
 
 
 class PostManager(models.Manager):
     def active(self, *args, **kwargs):
         return super(PostManager, self).filter(draft=False).filter(publish__lte=timezone.now())
-
-
 
 
 def upload_location(instance, filename):
